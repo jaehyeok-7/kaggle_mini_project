@@ -32,7 +32,7 @@
 
 ## 5. 통계분석 핵심 인사이트
 - 혈당이 중요함 : 다른 알려진 요인 (나이,BMI)보다 통계적으로 매우 훨씬, 강력하게 , 유의미하게 영향이 있음을 확인(via 회귀분석)
-[Q-Q plot](output/Q-Q%20plot.png)
+![Q-Qplot](output/qqplot.png)
 | 변수명 | 설명 | 값의 의미 |
 | :--- | :--- | :--- |
 | **Diabetes_binary** | 당뇨 여부 (**Target**) | 0: 음성, 1: 당뇨/전단계 |
@@ -54,3 +54,7 @@
 | **로고/색상 검색** | Simple Icons | [https://simpleicons.org/](https://simpleicons.org/) |
 | **이모지 검색** | Emoji Cheat Sheet | [https://github.com/ikatyang/emoji-cheat-sheet](https://github.com/ikatyang/emoji-cheat-sheet) |
 
+
+
+[def]: output/Q-Qplot.png
+[def2]: output/Q-Qplot.png
