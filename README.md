@@ -5,6 +5,14 @@
   <img src="https://img.shields.io/badge/xgboost-black?style=for-the-badge&logo=xgboost&logoColor=white">
 </div>
 
+# 프로젝트 주제 : 대사 지표 간 연관성 분석 
+- 데이터통계 기반으로 건강지표 확인 ( 프로젝트 전체요약, executive summary)
+
+## 1. project Overview
+** 주제** : 생활습관 또는 신체 상태를 활용한 당뇨병유무 분류
+- **데이터셋** :[Diabetes Health Indicators Dataset]
+
+
 # 🔗 배지 및 이모지 공식 소스 링크
 | 용도 | 사이트 이름 | 링크 |
 | :--- | :--- | :--- |
