@@ -65,7 +65,7 @@
 - 예측 모델에서 영향력이 가장 컸던 지표 순위
 1. AGE
 2. BMI
-![SHAP Rank](output/Rank/shap_rank.png)
+![SHAP Rank](output/Rank.png)
 
 
 ## 8. Conclusion
