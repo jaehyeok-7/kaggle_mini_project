@@ -2,11 +2,11 @@
   <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">
   <img src="https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white">
   <img src="https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white">
-  <img src="https://img.shields.io/badge/xgboost-black?style=for-the-badge&logo=xgboost&logoColor=white">
+  <img src="https://img.shields.io/badge/lightgbm-FFD43B?style=for-the-badge&logo=lightgbm&logoColor=black">
 </div>
 
-# 📖프로젝트 주제 : 당뇨병 예측 모델링: 통계분석 및 머신러닝 접근
-- 데이터틀 기반으로 생활 습관, 건강 지표 확인용... (프로젝트 전체 요약, executive summary)
+# 📖 프로젝트 주제 : 대사 지표 간 연관성 분석: 회귀분석 및 분산분석, 로지스틱 회귀분석을 활용한 통계적 접근
+- 대사 지표(혈당, 인슐린, BMI 등) 사이의 상관관계를 통계적으로 규명하고, 머신러닝 모델을 통해 당뇨병 고위험군을 예측하는 엔드투엔드 분석 프로젝트입니다.
 
 ## 1. Project Overview 
 - **주제** : 생활 습관 또는 신체 상태를 활용한 당뇨병 유무 분류
@@ -14,51 +14,46 @@
 - **핵심 목표** : 설문지를 활용해서 **당뇨병 고위험군을 선별할 수 있는 예측 모델** 구축
 
 ## 2. Data Dictionary (주요 핵심 변수)
-- 실제 분석 결과를 통해서 확보한 변수들의 기재
-- 총 변수갯수 : 31개
+- 분석에 사용된 주요 생체 지표 및 임상 데이터 (총 31개 변수 사용)
 
-| 변수명 | 설명 | 값의 의미 |
+| 변수명 | 설명 | 비고 |
 | :--- | :--- | :--- |
-| **Diabetes_binary** | 당뇨 여부 (**Target**) | 0: 음성, 1: 당뇨/전단계 |
-| HighBP | 고혈압 여부 | 0: 정상, 1: 고혈압 |
-| HighChol | 고콜레스테롤 여부 | 0: 정상, 1: 높음 |
-| BMI | 체질량 지수 | 수치형 |
-| Smoker | 흡연 여부 | 100개비 이상 흡연 여부 (0/1) |
-| Stroke | 뇌졸중 경험 | 0: 없음, 1: 있음 |
-| HeartDiseaseorAttack | 심장질환/심근경색 | 0: 없음, 1: 있음 |
-| PhysActivity | 신체 활동 | 최근 30일 이내 운동 여부 (0/1) |
-| GenHlth | 주관적 건강 상태 | 1(매우 좋음) ~ 5(매우 나쁨) |
-| Age | 연령대 | 1(18-24) ~ 13(80세 이상) |
-| Income | 소득 수준 | 1(최저) ~ 8(최고) |
+| **HbA1c** | 당화혈색소 | 지난 3개월간의 평균 혈당 상태 |
+| **Glucose** | 공복 혈당 수치 | 당뇨 진단의 핵심 지표 |
+| **Insulin** | 인슐린 수치 | 인슐린 저항성 확인 지표 |
+| **BMI** | 체질량 지수 | 비만도 측정 |
+| **Triglycerides** | 중성지방 | 혈중 지방 농도 |
+| **HDL** | 고밀도 콜레스테롤 | '좋은' 콜레스테롤 수치 |
+| **Outcome** | 당뇨 여부 (**Target**) | 0: 정상, 1: 당뇨 |
 
 ## 3. Problem Definition
-- **데이터 특성** : blah
+- **데이터 특성** : 31개의 변수와 약 10만 건의 데이터를 활용하여 대사 지표 간의 복합적 관계 분석
 - **분석 방향**
-    + 통계분석 : 다중회귀, 분산분석, 로지스틱회귀
-    + 머신러닝 : 로지스틱회귀, 결정트리, XGBoost, LightGBM 
+    + **통계 분석** : 다중회귀(인슐린 영향 요인), 분산분석(단계별 HbA1c 차이), 로지스틱 회귀(발병 확률)
+    + **머신러닝** : Logistic Regression, Decision Tree, XGBoost, LightGBM 비교 분석
 
 ## 4. Data Preprocessing
-- **클래스 불균형 해소** : blah
-- **범주형 변수 처리**
-    + 순서형 : ordinal encoder 처리 (A, B, C)
-    + 일반 범주 : One-Hot Encoding 처리
-- **데이터 스케일링** : StandardScaler(표준화)
+- **클래스 불균형 해소** : Stratified Sampling을 적용하여 학습 및 검증 데이터의 타겟 비율 유지
+- **범주형 변수 처리** + 순서형(Ordinal): 학력, 소득 등 계층 데이터 처리
+    + 명목형(One-Hot): 성별, 거주지 등 범주 데이터 처리
+- **데이터 스케일링** : StandardScaler를 적용하여 수치형 변수의 단위 표준화
 
 ## 5. 통계분석 핵심 인사이트
-- 혈당이 중요함 : 다른 알려진 요인(나이, BMI)보다 통계적으로 매우 훨씬, 강력하게, 유의미하게 영향이 있음을 확인 (via 회귀분석)
-![Q-Q Plot](output/qqplot.png)
+- **인슐린 수치 영향** : BMI가 인슐린 수치 상승에 가장 강력한 정(+)의 영향을 미치며, 통계적으로 매우 유의함($p < 0.001$).
+- **HbA1c 검증** : 식후 혈당($r=0.93$)이 당화혈색소 결정의 핵심 요인임을 확인. ANOVA 분석 결과 당뇨 진행 단계에 따라 HbA1c 수치가 유의미하게 차이남을 검증.
+- **혈당 보호 요인** : HDL 콜레스테롤은 공복 혈당을 낮추는 보호 요인으로 작용하는 반면, 중성지방은 혈당을 높이는 위험 요인으로 작용.
 
 ## 6. 모델링 평가지표
-- 최종 모델은 XGBoost로 선정
+- 분석 결과, 변수 중요도가 낮은 항목을 제거한 **LightGBM(Reduced)** 모델이 최적의 성능을 보임.
 
-| Model | Accuracy | Recall | F1-Score | AUC-ROC |
-| :--- | :--- | :--- | :--- | :--- |
-| Random Forest | 0.85 | 0.70 | 0.74 | 0.88 |
-| **XGBoost** | **0.86** | **0.75** | **0.78** | **0.91** |
+| Model | CV ROC-AUC | Val ROC-AUC | 비고 |
+| :--- | :--- | :--- | :--- |
+| Logistic Regression | 0.6937 | 0.6940 | Baseline |
+| Decision Tree | 0.6908 | 0.6917 | - |
+| XGBoost | 0.7238 | 0.7239 | - |
+| **LightGBM (Final)** | **0.7251** | **0.7255** | **최종 모델 선정** |
 
-> **Note** : 최종 대회 결과는 Public 0.70807 / Private 0.70807 (feat. 1등 점수). 
-
-> **Note** : 최종 대회 결과는 Public 0.70807 / Private 0.70807 (상위 10%). 
+> **Note** : 변수 선택(Feature Selection)을 통해 Kaggle Public Score가 0.6936에서 **0.6961**로 향상됨.
 
 ## 7. Feature Importance (옵션)
 - SHAP 활용
@@ -66,7 +61,6 @@
 1. AGE
 2. BMI
 ![SHAP Rank](output/Rank.png)
-
 
 ## 8. Conclusion
 - 결론1 : BMI는 당뇨병 발생 위험의 가장 강력한 예측인자
