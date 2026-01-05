@@ -12,6 +12,7 @@
 - **주제** : 생활 습관 또는 신체 상태를 활용한 당뇨병 유무 분류 
 - **데이터셋** : [Diabetes Health Indicators Dataset](https://www.kaggle.com/datasets/mohankrishnathalla/diabetes-health-indicators-dataset/data) 
 - **핵심 목표** : 설문지를 활용해서 **당뇨병 고위험군을 선별할 수 있는 예측 모델** 구축 
+- **프로젝트 기간** : 2025년 12월 29일 ~ 2025년 12월 31일 
 
 ## 2. Data Dictionary (주요 핵심 변수)
 - 분석에 사용된 주요 생체 지표 및 임상 데이터 (총 31개 변수, 10만 건 데이터) 
