@@ -31,7 +31,7 @@
 - **데이터 특성** : 31개의 변수와 100,000개의 행으로 구성된 대규모 데이터셋 분석 
 - **분석 방향** 
     + **통계 분석** : 다중회귀(인슐린 및 혈당 영향 요인), 분산분석(당뇨 단계별 HbA1c 차이), 로지스틱 회귀(당뇨 진단 확률)
-    + **머신러닝** : Logistic Regression, Decision Tree, XGBoost, LightGBM 성능 비교
+    + **머신러닝** : Logistic Regression, XGBoost, LightGBM 모델 간 성능 비교
 
 ## 4. Data Preprocessing
 - **클래스 불균형 해소** : 층화 샘플링(Stratified Sampling)을 통해 학습/검증 데이터의 클래스 비율 유지 
